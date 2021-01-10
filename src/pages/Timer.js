@@ -1,16 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { setColorTheme, updateTheme } from "../redux/colorTheme";
-import { changeMode,  setTime, stopTimer } from "../redux/timer";
+import { updateTheme } from "../settings/settings";
+import { setColorTheme } from "../redux/colorTheme";
+import { changeMode, setTime, stopTimer, setCurrentState, setTimeValue } from "../redux/timer";
 
 export default function Timer() {
     const { minutes, seconds } = useSelector(state => state.timer.time);
     const theme = useSelector(state => state.colorTheme);
-    const { buttonText, isStarted } = useSelector(state => state.timer);
-    // console.dir(useState(state => state))
-
+    const { isStarted, session, shortBreak, longBreak, currentState, autoStart } = useSelector(state => state.timer);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        switch (theme.shade) {
+            case "red":
+                dispatch(setTime(session, 0));
+                break;
+            case "green":
+                dispatch(setTime(shortBreak, 0));
+                break;
+            case "blue":
+                dispatch(setTime(longBreak, 0));
+                break;
+            default:
+                break;
+        }
+    }, [])
+
     useEffect(() => {
         updateTheme(theme);
     }, [theme]);
@@ -19,46 +35,82 @@ export default function Timer() {
     useEffect(() => {
         if (isStarted) {
             timeout = setTimeout(() => {
-                if (seconds > 0) 
+                if (seconds > 0)
                     dispatch(setTime(minutes, seconds - 1))
-                else 
+                else if (minutes > 0)
                     dispatch(setTime(minutes - 1, 59));
+                else
+                    timerEnded();
             }, 1000)
         }
-        else clearTimeout(timeout);
     }, [isStarted, seconds])
 
+    useEffect(() => {
+        document.title = document.querySelector(".timer-container p").innerHTML + " " + currentState;
+    }, [seconds, minutes, currentState])
+
     function optionChanged(shade, minutes) {
-        dispatch(setTime(minutes, 0));
+        clearTimeout(timeout);
         dispatch(setColorTheme(shade));
         dispatch(stopTimer());
-        clearTimeout(timeout);
+        let state = shade === "red" ? "pomodoro" : "break";
+        dispatch(setCurrentState(state))
+        dispatch(setTime(minutes, 0));
     }
-    useEffect(() => {
-        document.title = document.querySelector(".timer-container p").innerHTML;
-    }, [seconds, minutes])
+    function buttonClicked() {
+        clearTimeout(timeout);
+        dispatch(changeMode());
+        let buttonClickSound = document.querySelector("audio#button-clicked");
+        buttonClickSound.play();
+    }
+    function timerEnded() {
+        clearTimeout(timeout);
+        let timerEndedSound = document.querySelector("audio#timer-ended");
+        timerEndedSound.play();
+        for (let i = 1; i < 3; i++) {
+            setTimeout(() => {
+                timerEndedSound.play();
+            }, 770 * i);
+        }
+        dispatch(stopTimer())
+        if (currentState === "break") {
+            dispatch(setColorTheme("red"));
+            dispatch(setTime(session, 0));
+            dispatch(setCurrentState("session"))
+        }
+        else {
+            dispatch(setColorTheme("green"));
+            dispatch(setTime(shortBreak, 0));
+            dispatch(setCurrentState("break"))
+        }
+        if(autoStart)
+            buttonClicked();
+    }
     return (
         <main>
             <div className="timer-container">
                 <ul className="options">
-                    <li
-                        className="active"
-                        onClick={() => optionChanged("red", 25)}>
-                        Session
+                    <li className="active"
+                        onClick={() => optionChanged("red", session)}>
+                        Pomodoro
                     </li>
-                    <li onClick={() => optionChanged("green", 5)}>
+                    <li onClick={() => optionChanged("green", shortBreak)}>
                         Short break
-                        </li>
-                    <li onClick={() => optionChanged("blue", 15)}>
+                    </li>
+                    <li onClick={() => optionChanged("blue", longBreak)}>
                         Long break
                     </li>
                 </ul>
                 <p>
-                    {minutes}:{(seconds < 10) ? "0" + seconds : seconds}
+                    {(minutes < 10) ? "0" + minutes : minutes}:{(seconds < 10) ? "0" + seconds : seconds}
                 </p>
-                <button onClick={() => dispatch(changeMode())}>
-                        {buttonText}
-                </button>
+                <button onClick={() => buttonClicked()}> {isStarted ? "STOP" : "START"} </button>
+                <audio id="button-clicked">
+                    <source src="button_clicked.mp3"></source>
+                </audio>
+                <audio id="timer-ended">
+                    <source src="timer-ended.mp3"></source>
+                </audio>
             </div>
         </main>
     );

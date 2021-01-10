@@ -1,18 +1,19 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import {initialUrl} from "../App";
 
 function Header(props) {
     return (
         <header>
             <ul className="header">
                 <li>
-                    <img src="tomato_512.png" alt="tomato icon"/>
-                    <p className="title">POMODORO TIMER</p>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/135/135702.svg" alt="tomato icon"/>
+                    <p className="title">TOMOTIMER</p>
                 </li>
                 <li className="nav">
-                    <Link to="/">Timer</Link>
-                    <Link to="/faq">FAQ</Link>
-                    <Link to="/settings">Settings</Link>
+                    <Link to={`${initialUrl}/`}>Timer</Link>
+                    <Link to={`${initialUrl}/faq`}>FAQ</Link>
+                    <Link to={`${initialUrl}/settings`}>Settings</Link>
                 </li>
             </ul>
         </header>

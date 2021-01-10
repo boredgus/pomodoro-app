@@ -7,13 +7,14 @@ import Faq from "./pages/Faq";
 import Settings from "./pages/Settings";
 import Footer from "./components/Footer";
 
+export const initialUrl = "/pomodoro-app"
+
 function App() {
-  let initialUrl = "/pomodoro-app/"
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path={`${initialUrl}`}>
+        <Route exact path={`${initialUrl}/`}>
           <Timer />
         </Route>
         <Route path={`${initialUrl}/faq`}>

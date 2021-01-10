@@ -3,7 +3,6 @@ import React from "react";
 export default function Footer(props) {
     return (
         <footer>
-            <p>ALL RIGHTS RESERVED @2021</p>
             <div className="contacts">
                 <a href="https://telegram.me/kotank" target="_blank" rel="noreferrer">
                     <img 

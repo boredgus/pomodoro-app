@@ -1,19 +1,8 @@
-export function setSession(session) {
+export function setTimeValue(sort, time) {
     return {
-        type: "SET_SESSION_TIME",
-        session
-    }
-}
-export function setShortBreak(shortBreak) {
-    return {
-        type: "SET_SHORT_BREAK",
-        shortBreak
-    }
-}
-export function setLongBreak(longBreak) {
-    return {
-        type: "SET_LONG_BREAK",
-        longBreak
+        type: "SET_TIME_VALUE",
+        sort, 
+        time
     }
 }
 export function setTime(minutes, seconds) {
@@ -21,16 +10,6 @@ export function setTime(minutes, seconds) {
         type: "SET_TIME",
         minutes,
         seconds
-    }
-}
-export function setButtonText() {
-    return {
-        type: "SET_BUTTON_TEXT"
-    }
-}
-export function toggleIsStarted() {
-    return {
-        type: "TOGGLE_IS_STARTED"
     }
 }
 export function changeMode() {
@@ -43,35 +22,37 @@ export function stopTimer() {
         type: "STOP_TIMER"
     }
 }
+export function setCurrentState(currentState) {
+    return {
+        type: "SET_CURRENT_STATE",
+        currentState
+    }
+}
+export function toggleAutoStart() {
+    return {
+        type: "TOGGLE_AUTO_START"
+    }
+}
 
 const initialState = {
     isStarted: false,
+    autoStart: false,
     time: {
         minutes: 25,
         seconds: 0
     },
-    buttonText: "START",
     session: 25,
     shortBreak: 5,
-    longBreak: 15
+    longBreak: 15,
+    currentState: "pomodoro"
 }
 
 export default function timerReducer(timer = initialState, action) {
     switch (action.type) {
-        case "SET_SESSION_TIME":
+        case "SET_TIME_VALUE":
             return {
                 ...timer,
-                session: action.session
-            }
-        case "SET_SHORT_BREAK":
-            return {
-                ...timer,
-                shortBreak: action.shortBreak
-            }
-        case "SET_LONG_BREAK":
-            return {
-                ...timer,
-                longBreak: action.longBreak
+                [action.sort]: action.time
             }
         case "SET_TIME":
             return {
@@ -84,7 +65,6 @@ export default function timerReducer(timer = initialState, action) {
         case "CHANGE_MODE":
             return {
                 ...timer,
-                buttonText: timer.buttonText === "START" ? "STOP" : "START",
                 isStarted: !timer.isStarted
             }
         case "STOP_TIMER":
@@ -92,6 +72,16 @@ export default function timerReducer(timer = initialState, action) {
                 ...timer,
                 isStarted: false,
                 buttonText: "START"
+            }
+        case "SET_CURRENT_STATE":
+            return {
+                ...timer,
+                currentState: action.currentState
+            }
+        case "TOGGLE_AUTO_START":
+            return {
+                ...timer,
+                autoStart: !timer.autoStart
             }
         default:
             return timer;
