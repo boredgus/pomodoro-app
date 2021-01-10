@@ -1,5 +1,4 @@
 import './App.css';
-// import {useEffect} from "react";
 import {Switch, Route} from "react-router-dom";
 
 import Header from "./components/Header";
@@ -9,20 +8,18 @@ import Settings from "./pages/Settings";
 import Footer from "./components/Footer";
 
 function App() {
-  // useEffect(() => {
-  //   document.title = "POMODORO";
-  // }, [])
+  let initialUrl = "/pomodoro-app/"
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path="/">
+        <Route exact path={`${initialUrl}`}>
           <Timer />
         </Route>
-        <Route path="/faq">
+        <Route path={`${initialUrl}/faq`}>
           <Faq />
         </Route>
-        <Route path="/settings">
+        <Route path={`${initialUrl}/settings`}>
           <Settings />
         </Route>
       </Switch>
