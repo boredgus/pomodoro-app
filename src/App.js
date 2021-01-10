@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+// import {useEffect} from "react";
+import {Switch, Route} from "react-router-dom";
+
+import Header from "./components/Header";
+import Timer from "./pages/Timer";
+import Faq from "./pages/Faq";
+import Settings from "./pages/Settings";
+import Footer from "./components/Footer";
 
 function App() {
+  // useEffect(() => {
+  //   document.title = "POMODORO";
+  // }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Timer />
+        </Route>
+        <Route path="/faq">
+          <Faq />
+        </Route>
+        <Route path="/settings">
+          <Settings />
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }
