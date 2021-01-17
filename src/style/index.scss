@@ -1,0 +1,46 @@
+// common styles
+*{
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    margin: 0;
+    background-color: #637473;
+    overflow-y: scroll;
+}
+a{
+    text-decoration: none;
+}
+button{
+    outline: none;
+    border: none;
+}
+label{
+    font-weight: bold;
+}
+
+// imports
+@import "variables";
+@import "header";
+@import "body_timer";
+@import "body_instructions_settings";
+@import "footer";
+@import "adaptive";
+
+// scrollbar styles
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    border-radius: 7px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background: #f1d8c1;
+}
+::-webkit-scrollbar-thumb {
+    background: #f8ca8d;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(186, 35, 35, 0.4);
+}

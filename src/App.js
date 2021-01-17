@@ -1,4 +1,3 @@
-import './App.css';
 import {Switch, Route} from "react-router-dom";
 
 import Header from "./components/Header";
@@ -7,7 +6,7 @@ import Faq from "./pages/Faq";
 import Settings from "./pages/Settings";
 import Footer from "./components/Footer";
 
-export const initialUrl = "/pomodoro-app"
+export const initialUrl = "/pomodoro-app";
 
 function App() {
   return (

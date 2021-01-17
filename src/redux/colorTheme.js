@@ -7,8 +7,8 @@ export function setColorTheme(color) {
 
 const initialTheme = {
     shade: "red",
-    darkColor: "#f55656",
-    lightColor: "#fa9a9a"
+    darkColor: "#EE423E",
+    lightColor: "#F7937B"
 }
 export default function colorThemeReducer(theme = initialTheme, action) {
     switch (action.type) {
@@ -17,20 +17,20 @@ export default function colorThemeReducer(theme = initialTheme, action) {
                 case "red":
                     return {
                         shade: action.color.toLowerCase(),
-                        darkColor: "#f55656",
-                        lightColor: "#fa9a9a"
+                        darkColor: "#EE423E",
+                        lightColor: "#F7937B"
                     }
                 case "blue":
                     return {
                         shade: action.color.toLowerCase(),
-                        darkColor: "#1338a0",
-                        lightColor: "#6992c7"
+                        darkColor: "#0268B3",
+                        lightColor: "#608DC8"
                     }
                 case "green":
                     return {
                         shade: action.color.toLowerCase(),
-                        darkColor: "#227212",
-                        lightColor: "#7ac769"
+                        darkColor: "#03A863",
+                        lightColor: "#69C499"
                     }
                 default:
                     return theme;

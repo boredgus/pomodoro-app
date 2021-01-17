@@ -1,35 +1,24 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateTheme } from "../settings/settings";
+import { updateTheme, updateTime } from "../settings/settings";
 import { setColorTheme } from "../redux/colorTheme";
-import { changeMode, setTime, stopTimer, setCurrentState, setTimeValue } from "../redux/timer";
+import { changeMode, setTime, stopTimer, setCurrentState } from "../redux/timer";
 
 export default function Timer() {
-    const { minutes, seconds } = useSelector(state => state.timer.time);
+    const state = useSelector(state => state);
     const theme = useSelector(state => state.colorTheme);
     const { isStarted, session, shortBreak, longBreak, currentState, autoStart } = useSelector(state => state.timer);
+    const { minutes, seconds } = useSelector(state => state.timer.time);
     const dispatch = useDispatch();
 
+    console.dir(window)
+    
     useEffect(() => {
-        switch (theme.shade) {
-            case "red":
-                dispatch(setTime(session, 0));
-                break;
-            case "green":
-                dispatch(setTime(shortBreak, 0));
-                break;
-            case "blue":
-                dispatch(setTime(longBreak, 0));
-                break;
-            default:
-                break;
-        }
+        if(!isStarted)
+            dispatch(setTime(updateTime(state), 0));
+        return () => dispatch(stopTimer());        
     }, [])
-
-    useEffect(() => {
-        updateTheme(theme);
-    }, [theme]);
 
     let timeout = null;
     useEffect(() => {
@@ -46,15 +35,20 @@ export default function Timer() {
     }, [isStarted, seconds])
 
     useEffect(() => {
+        updateTheme(theme);
+    }, [theme]);
+
+
+    useEffect(() => {
         document.title = document.querySelector(".timer-container p").innerHTML + " " + currentState;
     }, [seconds, minutes, currentState])
 
     function optionChanged(shade, minutes) {
         clearTimeout(timeout);
-        dispatch(setColorTheme(shade));
         dispatch(stopTimer());
+        dispatch(setColorTheme(shade));
         let state = shade === "red" ? "pomodoro" : "break";
-        dispatch(setCurrentState(state))
+        dispatch(setCurrentState(state));
         dispatch(setTime(minutes, 0));
     }
     function buttonClicked() {
@@ -83,7 +77,7 @@ export default function Timer() {
             dispatch(setTime(shortBreak, 0));
             dispatch(setCurrentState("break"))
         }
-        if(autoStart)
+        if (autoStart)
             buttonClicked();
     }
     return (

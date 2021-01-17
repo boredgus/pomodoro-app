@@ -1,0 +1,68 @@
+.narrow-container{
+    max-width: 640px;
+    font-size: 20px;
+    margin: 0 auto;
+    color: #e7e7e7;
+    h2{
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #050411;
+    }
+    p{
+        font-size: 20px;
+        text-align: justify;
+        text-indent: 50px;
+    }
+    img{
+        width: 15%;
+        margin: 50px auto;
+        display: block;
+    }
+    ol{
+        font-size: 20px;
+        margin-bottom: 40px;
+        li::marker{
+            font-weight: bold;
+        }
+    }
+    .postscriptum{
+        font-size: 22px;
+        color: #19192b;
+        font-weight: bold;
+    }
+    .settings-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 20px;
+        text-align: center;
+        label{
+            padding-bottom: 5px;
+        }
+        input{
+            font-size: 20px;
+            width: 140px;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            background-color: #d6d6d6;
+            font-weight: bold;
+        }
+    }
+    .settings-row{
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        align-items: center;
+        justify-content: center;
+        input[type="checkbox"]{
+            width: 25px;
+            height: 25px;
+            background-color: rgb(187, 45, 45);
+        }
+    }
+}

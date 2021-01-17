@@ -11,7 +11,7 @@ export default function Faq() {
                 </p>
             </section>
             <section>
-                <h2>What is Pomodoro technique</h2>
+                <h2>What is Pomodoro technique?</h2>
                 <p>
                     The Pomodoro Technique is a time management technique invented in the late 1980s by Francesco Cirillo and was named after a tomato shaped timer he used to track his work when he was a university student.
                 </p>
@@ -23,9 +23,7 @@ export default function Faq() {
                 </p>
             </section>
             <section>
-                <h2>
-                    How to use it?
-                </h2>
+                <h2>How to use it?</h2>
                 <ol>
                     <li>Choose a task you want to accomplish.</li>
                     <li>Start the Pomodoro Timer.</li>
@@ -34,7 +32,7 @@ export default function Faq() {
                     <li>Take a long break after every 4 completed Pomodoros.</li>
                 </ol>
                 <p className="postscriptum">
-                    P.S.:: there are set commom values, but you can customize any stage duration as you like in any moment.
+                    P.S.:: there are set default and common values, but you can customize any stage duration as you like in any moment.
                 </p>
                 <p className="postscriptum">
                     P.S.S.:: if you have any suggestions about how to update this app, give me know it in any comfortable for you way &#9660;

@@ -20,3 +20,16 @@ export function updateTheme({ darkColor, lightColor, shade }) {
     }
     document.querySelector("main .timer-container .options li.active").style.backgroundColor = darkColor;
 }
+
+export function updateTime(state) {
+    switch (state.colorTheme.shade) {
+        case "red":
+            return state.timer.session;
+        case "green":
+            return state.timer.shortBreak;
+        case "blue":
+            return state.timer.longBreak;
+        default:
+            break;
+    }
+} 

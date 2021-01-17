@@ -1,16 +1,23 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setTimeValue, toggleAutoStart } from "../redux/timer";
+import { setTime, setTimeValue, toggleAutoStart } from "../redux/timer";
+import { updateTime } from "../settings/settings";
 
 export default function Settings() {
+    const state = useSelector(state => state);
     const { session, shortBreak, longBreak, autoStart } = useSelector(state => state.timer);
+    const minutes = useSelector(state => state.timer.time.minutes)
+    // console.log(minutes)
 
     document.title = "POMODORO";
     const dispatch = useDispatch();
 
     function changeTime(event) {
-        console.dir(event.target.id);
+        console.log(event.target.value)
         dispatch(setTimeValue(event.target.id, event.target.value));
+        // setTimeout(() => {
+        //     let min = updateTime(state);
+            // dispatch(setTime(event.target.value, 0));
     }
     function changeAutoStart() {
         dispatch(toggleAutoStart());
@@ -28,20 +35,28 @@ export default function Settings() {
                     type="number"
                     value={session}
                     onChange={changeTime}
-                    min="1" />
+                    min="1"
+                    max="60" />
                 <input
                     id="shortBreak"
                     type="number"
                     value={shortBreak}
                     onChange={changeTime}
-                    min="1" />
+                    min="1"
+                    max="10" />
                 <input
                     id="longBreak"
                     type="number"
                     value={longBreak}
                     onChange={changeTime}
                     min="1"
-                     />
+                    max="30" />
+                    {/* <select value={longBreak}>
+                        {() => {
+                            const options
+                            return options;
+                        }}
+                    </select> */}
             </div>
             <div className="settings-row">
                 <label>Auto start next level?</label>

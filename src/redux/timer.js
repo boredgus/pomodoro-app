@@ -55,6 +55,7 @@ export default function timerReducer(timer = initialState, action) {
                 [action.sort]: action.time
             }
         case "SET_TIME":
+            console.log(action.minutes)
             return {
                 ...timer,
                 time: {
