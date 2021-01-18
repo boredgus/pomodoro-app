@@ -1,42 +1,53 @@
-header .header {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: space-between;
-    background-color: #232726;
-    li {
-        padding: 20px;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, #242424, #3a3a3a);
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+    &.out {
+      transform: translateY(-100%);
+    }
+    .header {
         display: flex;
         flex-direction: row;
-        img {
-            width: 65px;
-            height: 65px;
-            margin-right: 20px;
-        }
-        .title {
-            font-weight: bold;
-            font-size: 60px;
-            margin: auto;
-            color: #EE423E;
-            letter-spacing: 3px;
-        }
-        a#logo-link{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        justify-content: space-between;
+        background-color: #232726;
+        li {
+            padding: 20px;
             display: flex;
             flex-direction: row;
-            margin: auto;
+            img {
+                width: 65px;
+                height: 65px;
+                margin-right: 20px;
+            }
+            .title {
+                font-weight: bold;
+                font-size: 60px;
+                margin: auto;
+                color: #EE423E;
+                letter-spacing: 3px;
+            }
+            a#logo-link{
+                display: flex;
+                flex-direction: row;
+                margin: auto;
+            }
         }
-    }
-    .nav a {
-        padding: 5px;
-        margin: auto;
-        margin: auto 25px;
-        color: #f8ca8d;
-        font-size: 30px;
-        &:hover {
-            background-color: #2a3331;
-            border-radius: 8px;
+        .nav a {
+            padding: 5px;
+            margin: auto;
+            margin: auto 25px;
+            color: #f8ca8d;
+            font-size: 30px;
+            &:hover {
+                background-color: #2a3331;
+                border-radius: 8px;
+            }
         }
     }
 }
