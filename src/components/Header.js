@@ -8,7 +8,7 @@ function Header(props) {
             <ul className="header">
                 <li>
                     <Link to={`${initialUrl}/`} id="logo-link">
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/135/135702.svg" alt="tomato icon" />
+                        <img src="./logo.svg" alt="tomato icon" />
                         <p className="title">TOMOTIMER</p>
                     </Link>
                 </li>

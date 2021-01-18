@@ -4,7 +4,6 @@ import { setTimeValue, toggleAutoStart } from "../redux/timer";
 
 export default function Settings() {
     const { session, shortBreak, longBreak, autoStart } = useSelector(state => state.timer);
-
     document.title = "POMODORO";
     const dispatch = useDispatch();
 
@@ -48,7 +47,7 @@ export default function Settings() {
                     checked={autoStart}
                     onChange={() => dispatch(toggleAutoStart())} />
             </div>
-            <img src="https://cdn.onlinewebfonts.com/svg/img_483008.png" alt="tomato line" />
+            <img src="./pomodoro_line.png" alt="tomato line" />
         </main>
     );
 }
