@@ -1,27 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setTime, setTimeValue, toggleAutoStart } from "../redux/timer";
-import { updateTime } from "../settings/settings";
+import { setTimeValue, toggleAutoStart } from "../redux/timer";
 
 export default function Settings() {
-    const state = useSelector(state => state);
     const { session, shortBreak, longBreak, autoStart } = useSelector(state => state.timer);
-    const minutes = useSelector(state => state.timer.time.minutes)
-    // console.log(minutes)
 
     document.title = "POMODORO";
     const dispatch = useDispatch();
 
     function changeTime(event) {
-        console.log(event.target.value)
         dispatch(setTimeValue(event.target.id, event.target.value));
-        // setTimeout(() => {
-        //     let min = updateTime(state);
-            // dispatch(setTime(event.target.value, 0));
-    }
-    function changeAutoStart() {
-        dispatch(toggleAutoStart());
-        console.log(autoStart)
     }
     return (
         <main className="narrow-container">
@@ -36,27 +24,21 @@ export default function Settings() {
                     value={session}
                     onChange={changeTime}
                     min="1"
-                    max="60" />
+                    max="180" />
                 <input
                     id="shortBreak"
                     type="number"
                     value={shortBreak}
                     onChange={changeTime}
                     min="1"
-                    max="10" />
+                    max="20" />
                 <input
                     id="longBreak"
                     type="number"
                     value={longBreak}
                     onChange={changeTime}
                     min="1"
-                    max="30" />
-                    {/* <select value={longBreak}>
-                        {() => {
-                            const options
-                            return options;
-                        }}
-                    </select> */}
+                    max="60" />
             </div>
             <div className="settings-row">
                 <label>Auto start next level?</label>
@@ -64,7 +46,7 @@ export default function Settings() {
                     type="checkbox"
                     value="autoStart"
                     checked={autoStart}
-                    onChange={changeAutoStart} />
+                    onChange={() => dispatch(toggleAutoStart())} />
             </div>
             <img src="https://cdn.onlinewebfonts.com/svg/img_483008.png" alt="tomato line" />
         </main>
