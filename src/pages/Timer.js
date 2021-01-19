@@ -100,10 +100,10 @@ export default function Timer() {
                 </p>
                 <button onClick={() => buttonClicked()}> {isStarted ? "STOP" : "START"} </button>
                 <audio id="button-clicked">
-                    <source src="button_clicked.mp3"></source>
+                    <source src="./button_clicked.mp3"></source>
                 </audio>
                 <audio id="timer-ended">
-                    <source src="timer-ended.mp3"></source>
+                    <source src="./timer-ended.mp3"></source>
                 </audio>
             </div>
         </main>
