@@ -1,9 +1,129 @@
+@import "variables";
 @media (max-width: 1024px) {
-    
+    $bodyMarginTop: 80px;
+    $logoSize: 45px;
+    header {
+        .header {
+            li a#logo-link{
+                .title{
+                    font-size: 40px;
+                }
+                img{
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+            .nav a{
+                font-size: 22px;
+            }
+        }
+    }
+    main {
+        margin-top: 95px;
+        .timer-container{
+            padding: 20px;
+            .options li{
+                font-size: 19px;
+                padding: 5px 10px;
+            }
+            p{
+                font-size: 90px;
+                margin: 30px auto;
+            }
+            button{
+                font-size: 30px;
+                padding: 4px 15px;
+            }
+        }
+    }
+    .narrow-container{
+        h2{
+            font-size: 25px;
+        }
+        p, ol, label{
+            font-size: 17px;
+        }
+        .postscriptum{
+            font-size: 18px;
+        }
+        .settings-box input{
+            font-size: 16px;
+            padding: 3px;
+            width: 110px;
+        }
+        img{
+            width: 70px;
+        }
+    }
 }
 
 @media (max-width: 768px) {
-    
+    header {
+        .header {
+            li {
+                padding: 10px;
+                a#logo-link{
+                    .title{
+                        font-size: 27px;
+                        letter-spacing: 2px;
+                    }
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .nav a{
+                font-size: 17px;
+            }
+        }
+    }
+    main {
+        margin-top: 70px;
+        .timer-container{
+            padding: 10px;
+            width: 600px;
+            max-width: 90%;
+            .options li{
+                font-size: 16px;
+                padding: 4px 9px;
+            }
+            p{
+                font-size: 70px;
+                margin: 30px auto;
+            }
+            button{
+                font-size: 24px;
+                padding: 3px 13px;
+            }
+        }
+    }
+    .narrow-container{
+        h2{
+            font-size: 25px;
+        }
+        p, ol, label{
+            font-size: 17px;
+        }
+        .postscriptum{
+            font-size: 18px;
+        }
+        .settings-box input{
+            font-size: 16px;
+            padding: 3px;
+            width: 110px;
+        }
+        img{
+            width: 70px;
+        }
+    }
+    footer .contacts a {
+        margin: 5px 0;
+        img{
+            width: 18px;
+        }
+    }
 }
 
 @media (max-width: 425px) {

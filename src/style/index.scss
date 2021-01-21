@@ -8,6 +8,10 @@ body{
     background-color: #637473;
     overflow-y: scroll;
 }
+
+main{
+    margin-top: 110px;
+}
 a{
     text-decoration: none;
 }
@@ -17,6 +21,13 @@ button{
 }
 label{
     font-weight: bold;
+}
+input{
+    outline: none;
+    background-color: #e7e7e7;
+    border: none;
+    border-bottom: 2px solid black!important;
+    border-right: 2px solid black!important;
 }
 
 // imports

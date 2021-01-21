@@ -3,8 +3,9 @@ main{
     height: 100%;
     .timer-container{
         width: 800px;
+        max-width: 60%;
         margin: 40px auto ;
-        padding: 35px;
+        padding: 25px;
         color:whitesmoke;
         background-color: #F7937B;
         border-radius: 10px;
@@ -20,7 +21,7 @@ main{
                 margin: 0 5px;
                 border-radius: 10px;
                 transition: 0.2s;
-                font-size: 150%;
+                font-size: 24px;
                 &:hover {
                     cursor: pointer;
                 }
@@ -31,7 +32,7 @@ main{
         }
         p{
             text-align: center;
-            font-size: 800%;
+            font-size: 110px;
             font-weight: 700;
             margin: 50px auto;
         }

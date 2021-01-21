@@ -17,33 +17,34 @@ header {
         justify-content: space-between;
         background-color: #232726;
         li {
-            padding: 20px;
+            padding: 17px;
             display: flex;
             flex-direction: row;
-            img {
-                width: 65px;
-                height: 65px;
-                margin-right: 20px;
-            }
-            .title {
-                font-weight: bold;
-                font-size: 60px;
-                margin: auto;
-                color: #EE423E;
-                letter-spacing: 3px;
-            }
             a#logo-link{
                 display: flex;
                 flex-direction: row;
                 margin: auto;
+                img {
+                    width: 48px;
+                    height: 48px;
+                    margin-right: 20px;
+                }
+                .title {
+                    font-weight: bold;
+                    font-size: 45px;
+                    margin: auto;
+                    color: #EE423E;
+                    letter-spacing: 5px;
+                    text-shadow: 0px 0px 7px #161616;
+                }
             }
         }
         .nav a {
             padding: 5px;
             margin: auto;
-            margin: auto 25px;
+            margin: auto 10px;
             color: #f8ca8d;
-            font-size: 30px;
+            font-size: 25px;
             &:hover {
                 background-color: #2a3331;
                 border-radius: 8px;
