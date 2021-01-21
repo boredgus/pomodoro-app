@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Faq() {
-    document.title = "POMODORO";
+    document.title = "FAQ | TomoTimer";
     return (
         <main className="narrow-container">
             <section>

@@ -11,8 +11,6 @@ export default function Timer() {
     const { isStarted, session, shortBreak, longBreak, currentState, autoStart } = useSelector(state => state.timer);
     const { minutes, seconds } = useSelector(state => state.timer.time);
     const dispatch = useDispatch();
-
-    console.dir(window)
     
     useEffect(() => {
         if(!isStarted)
@@ -40,7 +38,7 @@ export default function Timer() {
 
 
     useEffect(() => {
-        document.title = document.querySelector(".timer-container p").innerHTML + " " + currentState;
+        document.title = document.querySelector(".timer-container p").innerHTML + " " + currentState + " | TomoTimer";
     }, [seconds, minutes, currentState])
 
     function optionChanged(shade, minutes) {

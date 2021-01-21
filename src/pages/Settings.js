@@ -4,7 +4,7 @@ import { setTimeValue, toggleAutoStart } from "../redux/timer";
 
 export default function Settings() {
     const { session, shortBreak, longBreak, autoStart } = useSelector(state => state.timer);
-    document.title = "POMODORO";
+    document.title = "Settings | TomoTimer";
     const dispatch = useDispatch();
 
     function changeTime(event) {
