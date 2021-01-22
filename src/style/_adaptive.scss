@@ -1,7 +1,10 @@
-@import "variables";
+// @media (){
+//     footer{
+//         position: static;
+//     }
+// }
+
 @media (max-width: 1024px) {
-    $bodyMarginTop: 80px;
-    $logoSize: 45px;
     header {
         .header {
             li a#logo-link{
@@ -37,19 +40,25 @@
         }
     }
     .narrow-container{
+        margin-top: 95px;
         h2{
             font-size: 25px;
         }
-        p, ol, label{
+        p, ol{
             font-size: 17px;
         }
         .postscriptum{
             font-size: 18px;
         }
-        .settings-box input{
-            font-size: 16px;
-            padding: 3px;
-            width: 110px;
+        label{
+            font-size: 17px;
+        }
+        .settings-box .item {
+            input{
+               font-size: 16px;
+               padding: 3px;
+               width: 110px;
+           }
         }
         img{
             width: 70px;
@@ -83,7 +92,7 @@
         margin-top: 70px;
         .timer-container{
             padding: 10px;
-            width: 600px;
+            width: 500px;
             max-width: 90%;
             .options li{
                 font-size: 16px;
@@ -100,28 +109,57 @@
         }
     }
     .narrow-container{
+        margin-top: 70px;
+        width: 80%;
         h2{
-            font-size: 25px;
+            font-size: 22px;
+            margin: 10px 0;
         }
-        p, ol, label{
-            font-size: 17px;
+        p, ol{
+            font-size: 14px;
+        }
+        label{
+            font-size: 16px;
+        }
+        p{
+            margin: 7px 0;
+        }
+        ol{
+            margin-bottom: 30px;
         }
         .postscriptum{
-            font-size: 18px;
+            font-size: 15px;
         }
-        .settings-box input{
-            font-size: 16px;
-            padding: 3px;
-            width: 110px;
+        .settings-box {
+            grid-template-columns: 1fr;
+            .item{
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+                input{
+                    font-size: 13px;
+                    padding: 2px;
+                    width: 110px;
+                    margin: 0;
+                }
+            }
+        }
+        .settings-row{
+            margin-top: 15px;
+            input{
+                width: 20px;
+                height: 20px;
+            }
         }
         img{
-            width: 70px;
+            width: 50px;
+            margin: 30px auto 0;
         }
     }
     footer .contacts a {
-        margin: 5px 0;
+        margin: 3px 0;
         img{
-            width: 18px;
+            width: 12px;
         }
     }
 }
