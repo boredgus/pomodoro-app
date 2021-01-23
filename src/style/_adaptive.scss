@@ -120,6 +120,7 @@
         }
         label{
             font-size: 16px;
+            min-width: 130px;
         }
         p{
             margin: 7px 0;
@@ -162,8 +163,115 @@
             width: 12px;
         }
     }
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+    }
 }
 
 @media (max-width: 425px) {
-    
+    header {
+        .header {
+            li {
+                padding: 10px;
+                a#logo-link{
+                    .title{
+                        font-size: 22px;
+                        letter-spacing: 2px;
+                    }
+                    img{
+                        display: none;
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .nav a{
+                font-size: 14px;
+                padding: 2px;
+                margin: 2px 5px;
+            }
+        }
+    }
+    main {
+        margin-top: 55px;
+        padding-bottom: 30px;
+        .timer-container{
+            padding: 7px;
+            max-width: 90%;
+            .options {
+                flex-direction: column;
+                li{
+                    font-size: 15px;
+                    padding: 2px 5px;
+                    margin: 5 auto;
+                }
+            }
+            p{
+                font-size: 60px;
+                margin: 30px auto;
+            }
+            button{
+                font-size: 20px;
+                padding: 3px 13px;
+            }
+        }
+    }
+    .narrow-container{
+        margin-top: 55px;
+        width: 90%;
+        h2{
+            font-size: 17px;
+            margin: 10px 0;
+        }
+        p, ol{
+            font-size: 14px;
+        }
+        label{
+            font-size: 15px;
+        }
+        p{
+            margin: 7px 0;
+            text-indent: 20px;
+        }
+        ol{
+            margin-bottom: 30px;
+        }
+        .postscriptum{
+            font-size: 15px;
+        }
+        .settings-box {
+            grid-template-columns: 1fr;
+            .item{
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+                input{
+                    font-size: 13px;
+                    padding: 2px;
+                    width: 110px;
+                    margin: 0;
+                }
+            }
+        }
+        .settings-row{
+            margin-top: 15px;
+            input[type=checkbox]{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        img{
+            width: 50px;
+            margin: 30px auto 0;
+        }
+    }
+    footer .contacts a {
+        margin: 3px 0;
+        img{
+            width: 12px;
+        }
+    }
 }

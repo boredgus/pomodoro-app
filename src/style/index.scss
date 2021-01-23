@@ -30,14 +30,6 @@ input{
     border-right: 2px solid black!important;
 }
 
-// imports
-@import "variables";
-@import "header";
-@import "body_timer";
-@import "body_instructions_settings";
-@import "footer";
-@import "adaptive";
-
 // scrollbar styles
 ::-webkit-scrollbar {
     width: 7px;
@@ -55,3 +47,10 @@ input{
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(186, 35, 35, 0.4);
 }
+
+// imports
+@import "header";
+@import "body_timer";
+@import "body_instructions_settings";
+@import "footer";
+@import "adaptive";
