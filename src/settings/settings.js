@@ -32,13 +32,13 @@ export function updateTime(state) {
         default:
             break;
     }
-} 
+}
 
 let scrollPrev = 0;
-window.onscroll = function (){
+window.onscroll = function () {
     let scrolled = window.pageYOffset,
         menu = document.querySelector("header");
-    if(scrolled > 60  && scrolled > scrollPrev)
+    if (scrolled > 60 && scrolled > scrollPrev)
         menu.classList.add("out");
     else menu.classList.remove("out");
     scrollPrev = scrolled;
