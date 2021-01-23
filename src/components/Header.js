@@ -8,7 +8,7 @@ function Header(props) {
             <ul className="header">
                 <li>
                     <Link to={`${initialUrl}/`} id="logo-link">
-                        <img src="./logo.svg" alt="tomato icon" />
+                        <img src="./logo.png" alt="tomato icon" />
                         <p className="title">TOMOTIMER</p>
                     </Link>
                 </li>
