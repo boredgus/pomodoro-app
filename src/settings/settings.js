@@ -2,7 +2,7 @@ export function updateTheme({ darkColor, lightColor, shade }) {
     document.querySelectorAll("main .timer-container .options li").forEach(item => {
         item.className = "";
         item.style.backgroundColor = "";
-    });
+    }); 
     document.querySelector("main .timer-container").style.backgroundColor = lightColor;
     document.querySelector("main .timer-container button").style.color = darkColor;
     switch (shade) {
